@@ -1,0 +1,27 @@
+.notification{
+  width: 245px;
+  height: 35px;
+  background: #FDF8F7;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 80px;
+  position: fixed;
+  left: 50%;
+  bottom: 84px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+}
+
+
+.notification p{
+  margin: 0;
+  padding:0;
+  font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 19px;
+}

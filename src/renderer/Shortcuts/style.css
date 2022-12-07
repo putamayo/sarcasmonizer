@@ -1,0 +1,159 @@
+
+.shortcuts{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 12px 4px;
+  position: relative;
+  flex: 0 0 24px;
+  height: 48px;
+  z-index: 2;
+  background: var(--background-color);
+}
+
+.shortcuts * {
+  user-select: none;
+}
+
+.shortcuts .bg-shortcuts{
+  position:absolute;
+  border-top: 1px solid var(--border-color);
+  top: -1px;
+  left:0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: var(--background-color);
+}
+
+.shortcuts ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-flow: row nowrap;
+  align-items: center;
+  z-index: 2;
+}
+
+.shortcuts ul.full-shortcuts {
+  display: none;
+}
+
+.shortcuts ul.part-shortcuts {
+  display: flex;
+}
+
+.shortcuts ul.menu-shortcuts {
+  z-index: -1;
+
+  position: absolute;
+  right: 4px;
+  bottom: calc(100% + 4px);
+  background: var(--background-color); 
+  display: flex;
+  padding: 12px 8px;
+  transform: translateY(calc(100% + 4px));
+  flex-flow:column wrap;
+  align-items: flex-end;
+  gap:4px;
+
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+}
+
+@media (min-width: 850px){
+  .shortcuts ul.full-shortcuts {
+    display: flex;
+  }
+
+  .shortcuts ul.part-shortcuts {
+    display: none;
+  }
+}
+
+ul.full-shortcuts > li, 
+ul.part-shortcuts > li, 
+ul.menu-shortcuts > li {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: var(--shortcuts-text-color);
+  padding: 4px;
+}
+
+ul.full-shortcuts > li, 
+ul.part-shortcuts > li {
+  margin: 0;
+  display: inline-block;
+}
+
+ul.menu-shortcuts > li {
+  width: 100%;
+  text-align: right;
+}
+
+.shortcuts li.divider{
+  height: 24px;
+  width: 1px;
+  background-color: var(--shortcuts-divider-color);
+  margin-left:12px;
+  margin-right:12px;
+  padding: 0;
+}
+
+.shortcuts li.disabled{
+  opacity: 0.32;
+}
+
+.shortcuts li span.group {
+  display: inline-block;
+  margin-left: 12px;
+}
+
+.shortcuts li span.key {
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+
+  width: 24px;
+  height: 24px;
+  display: inline-grid;
+  place-items: center;
+
+  background: var(--shortcuts-background-color);
+  
+  backdrop-filter: blur(40px);
+  border-radius: 4px;
+}
+
+.shortcuts li span.key:not(:last-child) {
+  margin-right: 4px;
+}
+
+
+.pointer{
+  cursor: default;
+}
+
+.pointer:hover{
+  background: var(--background-li);
+  border-radius: 8px;
+}
+
+.shortcuts li span.key.pointer:hover{
+  background: var(--background-li);
+
+}
+
+.disabled .pointer{
+  pointer-events: none;
+}
+
+.disabled .pointer:hover{
+  background: transparent;
+  border-radius: inherit;
+}

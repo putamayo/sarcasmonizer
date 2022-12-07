@@ -1,0 +1,193 @@
+
+  :root{
+    --background-color: #FDF1ED;
+
+    --text-color: #000000;
+    --input-text-color: #000000;
+    --placeholder-color: #AEAEB1;
+    --border-color: #D1D1D1;
+    --shortcuts-text-color: #000;
+    --shortcuts-divider-color: #D1D1D1;
+    --shortcuts-background-color: rgba(0, 0, 0, 0.04);
+    --author-text-color: #AEAEB1;
+    --no-history-color: #494949;
+
+    --background-li: rgba(0, 0, 0, 0.04);
+    --background-li-hover: rgba(0, 0, 0, 0.02);
+ }
+
+
+ @media (prefers-color-scheme: dark) {
+  :root{
+    --background-color: #131018;
+
+    --text-color: #AEAEB1;
+    --input-text-color: #fff;
+    --placeholder-color: #494949;
+    --border-color: #494949;
+    --shortcuts-text-color: #AEAEB1;
+    --shortcuts-divider-color: #494949;
+    --shortcuts-background-color: rgba(255, 255, 255, 0.12);
+    --author-text-color:#494949;
+    --no-history-color: #494949;
+    --background-li:  rgba(255, 255, 255, 0.08);
+    --background-li-hover:  rgba(255, 255, 255, 0.04);
+
+ }
+}
+
+ @media (prefers-color-scheme: light) {
+  :root{
+    --background-color:  #FDF1ED;
+
+    --text-color: #000000;
+    --input-text-color: #000000;
+    --placeholder-color: #AEAEB1;
+    --border-color: #D1D1D1;
+    --shortcuts-text-color: #000;
+    --shortcuts-divider-color: #D1D1D1;
+    --shortcuts-background-color: rgba(0, 0, 0, 0.04);
+    --author-text-color: #AEAEB1;
+     --no-history-color: #AEAEB1;
+    --background-li: rgba(0, 0, 0, 0.04);
+    --background-li-hover: rgba(0, 0, 0, 0.02);
+}
+} 
+
+*,*::before,*::after{ box-sizing: border-box;}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: var(--background-color);
+  backdrop-filter: blur(40px);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-y: hidden;
+  margin: 0;
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+}
+
+.content{
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+  height: 100%;
+}
+
+input[type='text'] {
+  width: 100%;
+  height: 67px;
+  resize: none;
+  border: none;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+
+  padding: 15px 25px;
+  line-height: 37px;
+  font-weight: 400;
+  outline: none;
+
+  border-bottom: 1px solid var(--border-color);
+  color: var(--placeholder-color);
+  font-size: 16px;
+  background: transparent;
+  box-shadow: none;
+}
+
+input[type='text']:focus{
+  outline: none;
+  color: var(--input-text-color);
+}
+
+
+.history{
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-flow: row wrap; 
+}
+
+.history * {
+  user-select: none;
+}
+
+.history .raw, .history .sarcasm{
+    max-width: 50vw;
+    overflow: hidden;
+    min-height: calc(100vh - 76px - 67px);
+    max-height: calc(100vh - 76px - 67px);
+  flex: 1; 
+
+}
+
+.history .raw{
+  border-right: 1px solid var(--border-color);
+  padding: 12px;
+  position: relative;
+}
+
+.raw h3{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  color: var( --no-history-color);
+  margin: 12px 0 0 12px;
+}
+
+.raw ul, .sarcasm ul{
+  margin: 0;
+  list-style: none;
+  padding:0;
+  max-height: calc(100% - 38px);
+  overflow-y: auto;
+}
+
+.raw li, .sarcasm li{
+  padding: 0 0.8rem;
+  margin:0;
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  height: 35px;
+  line-height: 35px;
+    color: var(--input-text-color);
+
+}
+
+.raw li{
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.raw li:not(:last-child), .sarcasm li:not(:last-child){
+  margin:0 0 0.8rem;
+}
+
+.raw li:hover{
+  background: var(--background-li-hover);
+  border-radius: 8px;
+}
+
+.raw li.is-active{
+  background: var(--background-li);
+  border-radius: 8px;
+}
+
+
+.history .sarcasm{
+  padding: 38px 24px 24px;
+}
+.history .sarcasm p{
+  margin: 0;
+      color: var(--input-text-color);
+
+}

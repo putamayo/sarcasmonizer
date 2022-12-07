@@ -1,0 +1,30 @@
+.no-history{
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height : 100%;
+  place-items: center;
+  width: 100%;
+}
+
+.no-history img{
+  margin-bottom: 8px;
+}
+
+.no-history div{
+  text-align: center;
+}
+
+.no-history p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.004em;
+  color: var( --no-history-color);
+  max-width: 200px;
+}
