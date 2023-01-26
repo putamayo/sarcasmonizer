@@ -18,8 +18,8 @@ deleteSourceMaps();
 const devtoolsConfig =
   process.env.DEBUG_PROD === 'true'
     ? {
-        devtool: 'source-map',
-      }
+      devtool: 'source-map',
+    }
     : {};
 
 const configuration: webpack.Configuration = {
@@ -30,8 +30,7 @@ const configuration: webpack.Configuration = {
   target: 'electron-main',
 
   entry: {
-    main: path.join(webpackPaths.srcMainPath, 'main.ts'),
-    preload: path.join(webpackPaths.srcMainPath, 'preload.js'),
+    main: path.join(webpackPaths.srcMainPath, 'main.ts')
   },
 
   output: {

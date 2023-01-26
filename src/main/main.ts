@@ -18,11 +18,11 @@ import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 
 // require('update-electron-app')()
-require('update-electron-app')({
-  repo: 'https://github.com/RobinHeij89/sarcasmonizer',
-  updateInterval: '1 hour',
-  logger: require('electron-log')
-})
+// require('update-electron-app')({
+//   repo: 'https://github.com/RobinHeij89/sarcasmonizer',
+//   updateInterval: '1 hour',
+//   logger: require('electron-log')
+// })
 
 
 export default class AppUpdater {
@@ -40,6 +40,11 @@ ipcMain.on('ipc-example', async (event, arg) => {
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
 });
+
+// Event handler for asynchronous incoming messages
+ipcMain.on('asynchronous-message', (event) => {
+  event.sender.send('asynchronous-reply', app.getVersion()) // App version in dev is not correct and should work when built
+})
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -86,7 +91,8 @@ const createWindow = async () => {
     minWidth: 300,
     icon: getAssetPath('icon.icns'),
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true,
+      contextIsolation: false,
       experimentalFeatures: true
     },
   });

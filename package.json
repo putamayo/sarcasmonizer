@@ -1,6 +1,6 @@
 {
   "name": "sarcasmonizer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Let others know you're sarcastic, without hassle",
   "scripts": {
     "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
