@@ -44,6 +44,15 @@ ipcMain.on('ipc-example', async (event, arg) => {
 // Event handler for asynchronous incoming messages
 ipcMain.on('asynchronous-message', (event) => {
   event.sender.send('asynchronous-reply', app.getVersion()) // App version in dev is not correct and should work when built
+
+
+  // let { currentVersion } = '';
+
+  // if (process.env.NODE_ENV === 'development') {
+  //   currentVersion = require('../../../package.json').version;
+  // } else {
+  //   currentVersion = require('electron').remote.app.getVersion();
+  // }
 })
 
 if (process.env.NODE_ENV === 'production') {
